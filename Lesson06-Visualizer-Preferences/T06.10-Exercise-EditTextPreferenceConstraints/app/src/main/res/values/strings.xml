@@ -35,6 +35,8 @@
 
     <!-- Default for size preference -->
     <string name="pref_size_default" translatable="false">1</string>
+    <!--Error msg for invalid size preference-->
+    <string name="error_msg_invalid_size_range">Please enter size between 0.1 and 3</string>
 
 
     <!-- Label for the color preference -->

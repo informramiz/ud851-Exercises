@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
         // extract the list of tasks to a final variable
         // COMPLETED (7) Wrap the setTask call in a call to runOnUiThread
         AppExecutors.getInstance().diskIO().execute(() -> {
-            final List<TaskEnry> taskEntries = mDb.taskDao().loadAllTasks();
+            final List<TaskEntry> taskEntries = mDb.taskDao().loadAllTasks();
             runOnUiThread(() -> {
                 mAdapter.setTasks(taskEntries);
             });

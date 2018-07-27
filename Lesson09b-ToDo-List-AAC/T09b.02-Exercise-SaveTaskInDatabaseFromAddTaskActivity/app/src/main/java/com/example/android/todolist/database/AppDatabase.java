@@ -16,20 +16,18 @@ public abstract class AppDatabase extends RoomDatabase {
     private static final String DATABASE_NAME = "todolist";
     private static AppDatabase sInstance;
 
-    public static AppDatabase getInstance(Context context) {
+    public static AppDatabase getsInstance(Context context) {
         if (sInstance == null) {
             synchronized (LOCK) {
-                Log.d(LOG_TAG, "Creating new database instance");
                 sInstance = Room.databaseBuilder(context.getApplicationContext(),
                         AppDatabase.class, AppDatabase.DATABASE_NAME)
-                        // TODO (2) call allowMainThreadQueries before building the instance
+                        .allowMainThreadQueries()
                         .build();
             }
         }
-        Log.d(LOG_TAG, "Getting the database instance");
+
         return sInstance;
     }
 
     public abstract TaskDao taskDao();
-
 }
